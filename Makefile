@@ -4,6 +4,10 @@
 docker-image:
 	docker build -f Dockerfile -t yannh/openapi2jsonschema .
 
+publish: docker-image
+	docker tag yannh/openapi2jsonschema docker.pkg.github.com/yannh/openapi2jsonschema/openapi2jsonschema:latest
+	docker push docker.pkg.github.com/yannh/openapi2jsonschema/openapi2jsonschema:latest
+
 venv:
 	python3 -m venv venv/
 	source venv/bin/activate
